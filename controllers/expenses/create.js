@@ -8,7 +8,7 @@ const { validateRequiredInputs, CONSTANTS } = require("../../core");
 module.exports.handler = (event, context, callback) => {
 
     const timestamp = new Date().getTime();
-    const data = {description, type, value} = JSON.parse(event.body);
+    const data = JSON.parse(event.body);
     console.log(JSON.stringify(data))
 
     validateRequiredInputs(data, CONSTANTS.createExpense);
@@ -17,11 +17,9 @@ module.exports.handler = (event, context, callback) => {
         TableName: "expenses",
         Item: {
             id: uuid.v1(),
-            description,
-            type,
-            value,
             createdAt: timestamp,
-            updatedAt: timestamp
+            updatedAt: timestamp,
+            ...data
         }
     }
 
