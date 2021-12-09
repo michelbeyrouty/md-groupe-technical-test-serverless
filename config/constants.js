@@ -1,3 +1,7 @@
 module.exports = {
-    createExpense: ['description:string', "type:string", "value:number"],
-}
+  createExpense: [
+    'description:string',
+    'type:string',
+    'value:number',
+  ],
+};

@@ -1,20 +1,18 @@
 
-const headers = { 'Content-Type': 'text/plain' }
+const headers = {
+  'Content-Type': 'text/plain',
+};
 
- function badRequest(body) {
+function badRequest(body) {
 
-    return {
-        statusCode: 400,
-        body,
-        headers,
-    }
-
+  return {
+    statusCode: 400,
+    body,
+    headers,
+  };
 }
-
-
-
 
 
 module.exports = {
-    badRequest
-}
+  badRequest,
+};
