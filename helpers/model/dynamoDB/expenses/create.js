@@ -1,6 +1,6 @@
 const uuid = require("uuid");
 
-const createExpense = (DB, TableName) => (data) => {
+const createExpense = (DB, TableName) => async (data) => {
 
     const timestamp = new Date().getTime();
 
@@ -14,7 +14,7 @@ const createExpense = (DB, TableName) => (data) => {
         }
     }
 
-    const result = DB.put(params);
+    const result = await DB.put(params);
 
     return result
 
