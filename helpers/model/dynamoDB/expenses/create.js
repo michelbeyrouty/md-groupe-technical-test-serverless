@@ -1,11 +1,11 @@
 const uuid = require("uuid");
 
-const createExpense = (DB) => (data) => {
+const createExpense = (DB, TableName) => (data) => {
 
     const timestamp = new Date().getTime();
 
     const params = {
-        TableName: "expenses",
+        TableName,
         Item: {
             id: uuid.v1(),
             createdAt: timestamp,

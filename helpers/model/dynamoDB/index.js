@@ -1,7 +1,8 @@
-const { dynamoDB } = require("./dynamoDB");
-const DB = dynamoDB.getInstance();
+const { DynamoDB } = require("./DynamoDB");
+const DB = DynamoDB.getInstance();
+const ExpensesTableName = "expenses",
 const { createExpense } = require("./expenses/create");
 
 module.exports = {
-    "createExpense" : createExpense(DB),
+    "createExpense" : createExpense(DB,ExpensesTableName),
 }
