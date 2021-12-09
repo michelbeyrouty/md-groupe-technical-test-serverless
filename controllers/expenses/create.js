@@ -1,6 +1,6 @@
 'use strict'
 
-const { createExpense } = require("../../helpers/model/dynamoDB")
+const { createExpense } = require("../../helpers/model/dynamoDB");
 const { validateRequiredInputs, CONSTANTS, errors } = require("../../helpers");
 
 module.exports.handler = async (event, context, callback) => {
@@ -12,7 +12,7 @@ module.exports.handler = async (event, context, callback) => {
 
     validateRequiredInputs(data, CONSTANTS.createExpense);
 
-    const result = await createExpense(data)
+    const result = await createExpense(data);
 
     const response = {
         statusCode: 200,
