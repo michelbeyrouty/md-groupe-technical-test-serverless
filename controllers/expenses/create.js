@@ -30,10 +30,10 @@ module.exports.handler = async (event, context, callback) => {
   }catch(error){
     switch(error.name) {
     case 'InvalidInputType':
-      callback(null, badRequest(error.message));
-      break;
-    case y:
       callback(null, NotFound(error.message));
+      break;
+    case 'MisingInput':
+      callback(null, badRequest(error.message));
       break;
     default:
       callback(null, ServerError(error.message));
