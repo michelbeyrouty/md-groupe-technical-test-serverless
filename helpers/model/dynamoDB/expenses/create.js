@@ -1,8 +1,6 @@
-const { dynamoDB } = require("../init")
 const uuid = require("uuid");
-const DB = dynamoDB.getInstance();
 
-async function createExpense(data){
+const createExpense = (DB) => (data) => {
 
     const timestamp = new Date().getTime();
 

@@ -1,6 +1,6 @@
 'use strict'
 
-const { createExpense } = require("../../helpers/model/dynamoDB/expenses/create")
+const { createExpense } = require("../../helpers/model/dynamoDB")
 const { validateRequiredInputs, CONSTANTS, errors } = require("../../helpers");
 
 module.exports.handler = async (event, context, callback) => {

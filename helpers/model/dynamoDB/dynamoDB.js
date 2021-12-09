@@ -2,7 +2,7 @@
 const AWS = require("aws-sdk");
 
 const DynamoDB = (function () {
-    const instance;
+    var instance;
 
     function createInstance() {
         const dynamoDb = new AWS.DynamoDB.DocumentClient();
