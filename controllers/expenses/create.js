@@ -5,7 +5,9 @@ const uuid = require("uuid");
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const { validateRequiredInputs, CONSTANTS } = require("../../core");
 
-module.exports.handler = (event, context, callback) => {
+module.exports.handler = async (event, context, callback) => {
+
+    try{
 
     const timestamp = new Date().getTime();
     const data = JSON.parse(event.body);
@@ -23,22 +25,17 @@ module.exports.handler = (event, context, callback) => {
         }
     }
 
-    dynamoDb.put(params,  (error, result) => {
-        if (error) {
-            console.error(error);
-            callback(new Error("Couldn\'t create expense."))
-            return;
-        }
+    const result = dynamoDb.put(params);
 
-        console.log(JSON.stringify(result))
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify(result.Item)
+    }
 
-        const response = {
-            statusCode: 200,
-            body: JSON.stringify(result.Item)
-        }
+    callback(null, response)
 
-        callback(null, response)
+    }catch(error){
+        console.log(error)
 
-    })
-
+    }
 }
