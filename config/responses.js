@@ -3,11 +3,13 @@ const headers = {
   'Content-Type': 'text/plain',
 };
 
-function badRequest(body) {
+function badRequest(message) {
 
   return {
     statusCode: 400,
-    body,
+    body:{
+      message,
+    },
     headers,
   };
 }
