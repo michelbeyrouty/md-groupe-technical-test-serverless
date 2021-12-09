@@ -2,6 +2,7 @@
 
 const { createExpense } = require("../../helpers/model/dynamoDB");
 const { validateRequiredInputs, CONSTANTS, errors } = require("../../helpers");
+const {badRequest} = require("../../config/responses")
 
 module.exports.handler = async (event, context, callback) => {
 
@@ -23,6 +24,6 @@ module.exports.handler = async (event, context, callback) => {
 
     }catch(error){
         console.log(error)
-        callback(errors.BadRequest("BAD"), null)
+        callback(null, badRequest(error.message))
     }
 }
