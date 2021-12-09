@@ -19,8 +19,8 @@ provider:
       Resource: "arn:aws:dynamodb:eu-west-1:*:*"
 
 functions:
-  createPost:
-    handler: contrllers/expenses/create.handler
+  createExpense:
+    handler: controllers/expenses/create.handler
     events:
       - http:
           path: expenses
