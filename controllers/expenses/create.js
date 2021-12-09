@@ -4,7 +4,9 @@ const { createExpense } = require('../../helpers/model/dynamoDB');
 const {
   validateRequiredInputs, CONSTANTS,
 } = require('../../helpers');
-const { badRequest } = require('../../config/responses');
+const {
+  badRequest, NotFound, 
+} = require('../../config/responses');
 
 module.exports.handler = async (event, context, callback) => {
 
@@ -16,16 +18,21 @@ module.exports.handler = async (event, context, callback) => {
     validateRequiredInputs(data, CONSTANTS.createExpense);
 
     const result = await createExpense(data);
+    console.log(result);
 
     const response = {
       statusCode: 200,
-      body: JSON.stringify(result.Item),
+      body: 'JSON.stringify(result)',
     };
 
     callback(null, response);
 
   }catch(error){
     console.log(error);
-    callback(null, badRequest(error.message));
+    if(error.message == 'InvalidInputType'){
+      callback(null, badRequest(error.message));
+    }else{
+      callback(null, NotFound(error.message));
+    }
   }
 };

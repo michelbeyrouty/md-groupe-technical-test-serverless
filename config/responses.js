@@ -3,13 +3,20 @@ const headers = {
   'Content-Type': 'text/plain',
 };
 
-function badRequest(message) {
+function badRequest(body) {
 
   return {
     statusCode: 400,
-    body:{
-      message,
-    },
+    body,
+    headers,
+  };
+}
+
+function NotFound(body) {
+
+  return {
+    statusCode: 404,
+    body,
     headers,
   };
 }
@@ -17,4 +24,5 @@ function badRequest(message) {
 
 module.exports = {
   badRequest,
+  NotFound,
 };
