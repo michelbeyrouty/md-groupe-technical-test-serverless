@@ -17,7 +17,6 @@ const createExpense = (DB, TableName) => async (data) => {
   const result = await DB.put(params);
 
   return result;
-
 };
 
 module.exports = {
