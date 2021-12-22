@@ -1,9 +1,7 @@
 'use strict';
 
 const { deleteExpenseById } = require('../../helpers/model/dynamoDB');
-const {
-  badRequest, NotFound, ServerError,
-} = require('../../config/responses');
+const { ServerError } = require('../../config/responses');
 
 module.exports.handler = async (event, context, callback) => {
 

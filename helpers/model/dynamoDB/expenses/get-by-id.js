@@ -1,5 +1,5 @@
-const { DynamoDB } = require('../DynamoDB');
-const DB2 = DynamoDB.getInstance();
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
 
 const createExpense = (DB, TableName) => async (data) => {
 
@@ -12,7 +12,7 @@ const createExpense = (DB, TableName) => async (data) => {
     },
   };
 
-  const result = await DB2.scan(params).promise();
+  const result = await docClient.scan(params).promise();
 
   return result;
 };

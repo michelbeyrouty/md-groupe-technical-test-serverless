@@ -1,5 +1,5 @@
-const { DynamoDB } = require('../DynamoDB');
-const DB2 = DynamoDB.getInstance();
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
 
 const deleteExpense = async (data) => {
 
@@ -10,7 +10,7 @@ const deleteExpense = async (data) => {
     },
   };
 
-  await DB2.delete(params).promise();
+  await docClient.delete(params).promise();
 
 };
 
