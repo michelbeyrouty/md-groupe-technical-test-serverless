@@ -5,8 +5,8 @@ const DynamoDB = (function () {
   var instance;
 
   function createInstance() {
-    const dynamoDb = new AWS.DynamoDB.DocumentClient();
-    return dynamoDb;
+    const docClient = new AWS.DynamoDB.DocumentClient();
+    return docClient;
   }
 
   return {
