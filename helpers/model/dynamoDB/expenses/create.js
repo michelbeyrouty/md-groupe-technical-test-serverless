@@ -1,15 +1,13 @@
 const uuid = require('uuid');
-const { DynamoDB } = require('../DynamoDB');
-const DB2 = DynamoDB.getInstance();
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient();
 
-const createExpense = (DB, TableName) => async (data) => {
+const createExpense = async (data) => {
 
   const timestamp = new Date().getTime();
 
-  console.log(data);
-
   const params = {
-    TableName,
+    TableName: 'expenses',
     Item: {
       id: uuid.v1(),
       createdAt: timestamp,
@@ -18,11 +16,9 @@ const createExpense = (DB, TableName) => async (data) => {
     },
   };
 
-  const result = await DB2.put(params);
+  const result = await docClient.put(params);
 
   return result;
 };
 
-module.exports = {
-  createExpense,
-};
+module.exports = createExpense;
