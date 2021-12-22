@@ -1,9 +1,7 @@
 const { DynamoDB } = require('../DynamoDB');
 const DB2 = DynamoDB.getInstance();
 
-const createExpense = (DB, TableName) => async (data) => {
-
-  console.log(data);
+const deleteExpense = async (data) => {
 
   const params = {
     TableName,
@@ -12,11 +10,8 @@ const createExpense = (DB, TableName) => async (data) => {
     },
   };
 
-  const result = await DB2.delete(params).promise();
+  await DB2.delete(params).promise();
 
-  return result;
 };
 
-module.exports = {
-  createExpense,
-};
+module.exports = deleteExpense;

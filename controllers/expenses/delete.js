@@ -1,9 +1,6 @@
 'use strict';
 
-const { createExpense } = require('../../helpers/model/dynamoDB');
-const {
-  validateRequiredInputs, CONSTANTS,
-} = require('../../helpers');
+const { deleteExpenseById } = require('../../helpers/model/dynamoDB');
 const {
   badRequest, NotFound, ServerError,
 } = require('../../config/responses');
@@ -13,9 +10,7 @@ module.exports.handler = async (event, context, callback) => {
   try{
     const data = JSON.parse(event.body);
 
-    validateRequiredInputs(data, CONSTANTS.createExpense);
-
-    const Expense = await createExpense(data);
+    const Expense = await deleteExpenseById(data);
 
     const response = {
       statusCode: 200,
@@ -28,12 +23,6 @@ module.exports.handler = async (event, context, callback) => {
 
   }catch(error){
     switch(error.name) {
-    case 'InvalidInputType':
-      callback(null, NotFound(error.message));
-      break;
-    case 'MisingInput':
-      callback(null, badRequest(error.message));
-      break;
     default:
       callback(null, ServerError(error.message));
     }
