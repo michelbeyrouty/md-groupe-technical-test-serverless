@@ -15,11 +15,11 @@ module.exports.handler = async (event, context, callback) => {
 
     validateRequiredInputs(data, CONSTANTS.createExpense);
 
-    await createExpense(data);
+    const expense = await createExpense(data);
 
     const response = {
       statusCode: 200,
-      body: 's',
+      body: expense,
     };
 
     callback(null, response);
