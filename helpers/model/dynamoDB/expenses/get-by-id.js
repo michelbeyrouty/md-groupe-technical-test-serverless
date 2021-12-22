@@ -12,7 +12,7 @@ const createExpense = (DB, TableName) => async (data) => {
     },
   };
 
-  const result = await DB2.scan(params);
+  const result = await DB2.scan(params).promise();
 
   return result;
 };

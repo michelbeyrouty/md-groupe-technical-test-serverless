@@ -9,15 +9,16 @@ const createExpense = async (data) => {
   const params = {
     TableName: 'expenses',
     Item: {
-      id: uuid.v1(),
-      createdAt: timestamp,
-      updatedAt: timestamp,
+      'id': uuid.v1(),
+      'createdAt': timestamp,
+      'updatedAt': timestamp,
       ...data,
     },
   };
 
-  const result = await docClient.put(params);
+  const result = await docClient.put(params).promise();
 
+  console.log(result);
   return result;
 };
 

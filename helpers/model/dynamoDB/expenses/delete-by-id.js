@@ -12,7 +12,7 @@ const createExpense = (DB, TableName) => async (data) => {
     },
   };
 
-  const result = await DB2.delete(params);
+  const result = await DB2.delete(params).promise();
 
   return result;
 };
