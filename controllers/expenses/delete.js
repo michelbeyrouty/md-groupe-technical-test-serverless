@@ -6,15 +6,13 @@ const { ServerError } = require('../../config/responses');
 module.exports.handler = async (event, context, callback) => {
 
   try{
-    const data = JSON.parse(event.body);
 
-    const Expense = await deleteExpenseById(data);
+    const expenseId = event.pathParameters.id;
+
+    await deleteExpenseById(expenseId);
 
     const response = {
       statusCode: 200,
-      body: {
-        Expense,
-      },
     };
 
     callback(null, response);
