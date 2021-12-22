@@ -4,14 +4,13 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 const deleteExpense = async (data) => {
 
   const params = {
-    TableName,
+    TableName: 'expenses',
     Item: {
       ...data,
     },
   };
 
   await docClient.delete(params).promise();
-
 };
 
 module.exports = deleteExpense;
