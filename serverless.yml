@@ -27,10 +27,10 @@ functions:
           method: post
           cors: true
   deletePost:
-    handler: controllers/expenses/delete.delete
+    handler: controllers/expenses/delete.handler
     events:
       - http:
-          path: posts/{id}
+          path: expenses/{id}
           method: delete
           cors: true
   # listPost:

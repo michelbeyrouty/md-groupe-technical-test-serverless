@@ -5,7 +5,7 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 const createExpense = async (data) => {
 
   const timestamp = new Date().getTime();
-  const Expense = {
+  const expense = {
     'id': uuid.v1(),
     'createdAt': timestamp,
     'updatedAt': timestamp,
@@ -14,12 +14,12 @@ const createExpense = async (data) => {
 
   const params = {
     TableName: 'expenses',
-    Item: Expense,
+    Item: expense,
   };
 
   await docClient.put(params).promise();
 
-  return Expense;
+  return expense;
 };
 
 module.exports = createExpense;
