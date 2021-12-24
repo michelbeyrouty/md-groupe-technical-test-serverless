@@ -44,8 +44,8 @@ functions:
     handler: controllers/expenses/get.handler
     events:
       - http:
-          path: expenses
-          method: post #TODO: Use Get
+          path: expenses/get
+          method: post #TODO: Use Get, fix route
           cors: true
   # createComment:
   #   handler: apis/comments/create.create

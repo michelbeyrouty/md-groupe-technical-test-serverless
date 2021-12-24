@@ -1,3 +1,3 @@
 module.exports = {
-  validateExpense: require('./utils/validation/expense-validation'),
+  'validateExpense': require('./utils/validation/expense-validation'),
 };

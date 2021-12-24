@@ -1,7 +1,6 @@
 'use strict';
 
 const { createExpense } = require('../../helpers/model/dynamoDB');
-const CONSTANTS = require('../../config/constants');
 const { validateExpense } = require('../../helpers');
 const {
   badRequest, ServerError,
