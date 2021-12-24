@@ -3,7 +3,7 @@ const {
 } = require('../../../config/errors');
 const ExpenseSchema = require('./schema/expense');
 
-function expenseValidation(expense) {
+module.exports = function expenseValidation(expense) {
 
   const { error = {} } = ExpenseSchema.validate(expense);
   const errorMessage = error.message;
