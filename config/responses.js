@@ -14,17 +14,6 @@ function badRequest(message) {
   };
 }
 
-function NotFound(message) {
-
-  return {
-    statusCode: 404,
-    body: JSON.stringify({
-      message,
-    }),
-    headers,
-  };
-}
-
 function ServerError(message) {
 
   return {
@@ -37,9 +26,7 @@ function ServerError(message) {
 }
 
 
-
 module.exports = {
   badRequest,
-  NotFound,
   ServerError,
 };

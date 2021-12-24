@@ -5,7 +5,7 @@ const {
   validateRequiredInputs, CONSTANTS,
 } = require('../../helpers');
 const {
-  badRequest, NotFound, ServerError,
+  badRequest, ServerError,
 } = require('../../config/responses');
 
 module.exports.handler = async (event, context, callback) => {
@@ -28,10 +28,8 @@ module.exports.handler = async (event, context, callback) => {
 
   }catch(error){
     switch(error.name) {
-    case 'InvalidInputType':
-      callback(null, NotFound(error.message));
-      break;
     case 'MisingInput':
+    case 'InvalidInputType':
       callback(null, badRequest(error.message));
       break;
     default:
