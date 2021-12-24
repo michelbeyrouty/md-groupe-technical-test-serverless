@@ -6,7 +6,7 @@ const ExpenseSchema = require('./schema/expense');
 module.exports = function expenseValidation(expense) {
 
   const { error = {} } = ExpenseSchema.validate(expense);
-  const errorMessage = error.message;
+  const errorMessage = error.message || '';
 
   if(errorMessage.includes('must be')){
     throw new InvalidInputType(errorMessage);
@@ -17,8 +17,4 @@ module.exports = function expenseValidation(expense) {
   }
 
   return;
-};
-
-module.exports = {
-  expenseValidation,
 };

@@ -1,10 +1,10 @@
 'use strict';
 
-// const { createExpense } = require('../../helpers/model/dynamoDB');
-// const { validateExpense } = require('../../helpers');
-// const {
-//   badRequest, ServerError,
-// } = require('../../config/responses');
+const { updateExpenseById } = require('../../helpers/model/dynamoDB');
+const { validateExpense } = require('../../helpers');
+const {
+  badRequest, ServerError,
+} = require('../../config/responses');
 
 module.exports.handler = async (event, context, callback) => {
 

@@ -2,7 +2,7 @@ const uuid = require('uuid');
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-const createExpense = async (expenseId) => {
+const getExpenseById = async (expenseId) => {
 
   const params = {
     TableName: 'expenses',
@@ -16,4 +16,4 @@ const createExpense = async (expenseId) => {
   return result.Item;
 };
 
-module.exports = createExpense;
+module.exports = getExpenseById;

@@ -2,7 +2,7 @@ const uuid = require('uuid');
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-const createExpense = async () => {
+const listExpense = async () => {
 
   // TODO: Add date/time filtering
 
@@ -16,4 +16,4 @@ const createExpense = async () => {
   return response;
 };
 
-module.exports = createExpense;
+module.exports = listExpense;

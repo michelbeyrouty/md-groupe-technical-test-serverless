@@ -2,18 +2,22 @@ const uuid = require('uuid');
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-const createExpense = async (expenseId) => {
+const updateExpense = async (data) => {
 
   const params = {
     TableName: 'expenses',
+    Key: {
+      'id': data.id,
+    },
     Item: {
-      'id': expenseId,
+      'updatedAt': new Date().getTime(),
+      ...data,
     },
   };
 
-  const result = await docClient.get(params).promise();
+  const result = await docClient.update(params).promise();
 
   return result.Item;
 };
 
-module.exports = createExpense;
+module.exports = updateExpense;

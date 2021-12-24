@@ -7,9 +7,9 @@ module.exports.handler = async (event, context, callback) => {
 
   try{
 
-    const expenseId = event.pathParameters.id;
+    const data = JSON.parse(event.body);
 
-    const expense = await getExpenseById(expenseId);
+    const expense = await getExpenseById(data.id);
 
     const response = {
       statusCode: 200,

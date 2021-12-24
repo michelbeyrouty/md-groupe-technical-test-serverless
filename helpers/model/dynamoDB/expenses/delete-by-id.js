@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-const deleteExpense = async (expenseId) => {
+const deleteExpenseById = async (expenseId) => {
 
   const params = {
     TableName: 'expenses',
@@ -13,4 +13,4 @@ const deleteExpense = async (expenseId) => {
   await docClient.delete(params).promise();
 };
 
-module.exports = deleteExpense;
+module.exports = deleteExpenseById;

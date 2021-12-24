@@ -23,8 +23,8 @@ functions:
     handler: controllers/expenses/create.handler
     events:
       - http:
-          path: expenses
-          method: post
+          path: expenses/create
+          method: post #TODO: Use get and fix route
           cors: true
   deleteExpense:
     handler: controllers/expenses/delete.handler
