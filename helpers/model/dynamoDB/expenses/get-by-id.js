@@ -6,7 +6,7 @@ const createExpense = async (expenseId) => {
 
   const params = {
     TableName: 'expenses',
-    Item: {
+    Key: {
       'id': expenseId,
     },
   };

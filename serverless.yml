@@ -37,15 +37,15 @@ functions:
     handler: controllers/expenses/list.handler
     events:
       - http:
-          path: expenses
-          method: get
+          path: expenses/list
+          method: post #TODO: Use get and fix route
           cors: true
   getExpense:
     handler: controllers/expenses/get.handler
     events:
       - http:
-          path: expenses/{id}
-          method: get
+          path: expenses
+          method: post #TODO: Use Get
           cors: true
   # createComment:
   #   handler: apis/comments/create.create
