@@ -33,40 +33,26 @@ functions:
           path: expenses/{id}
           method: delete
           cors: true
-  # listPost:
-  #   handler: apis/posts/list.list
-  #   events:
-  #     - http:
-  #         path: posts
-  #         method: get
-  #         cors: true
+  listExpense:
+    handler: controllers/expenses/list.handler
+    events:
+      - http:
+          path: expenses
+          method: get
+          cors: true
+  getExpense:
+    handler: controllers/expenses/get.handler
+    events:
+      - http:
+          path: expenses/{id}
+          method: get
+          cors: true
   # createComment:
   #   handler: apis/comments/create.create
   #   events:
   #     - http:
   #         path: comments
   #         method: post
-  #         cors: true
-  # listComment:
-  #   handler: apis/comments/list.list
-  #   events:
-  #     - http:
-  #         path: comments
-  #         method: get
-  #         cors: true
-  # deleteComment:
-  #   handler: apis/comments/delete.delete
-  #   events:
-  #     - http:
-  #         path: comments/{id}
-  #         method: delete
-  #         cors: true
-  # getStatistics:
-  #   handler: apis/statistics/get.get
-  #   events:
-  #     - http:
-  #         path: statistics
-  #         method: get
   #         cors: true
 
 resources:

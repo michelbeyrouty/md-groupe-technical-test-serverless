@@ -6,7 +6,7 @@ const deleteExpense = async (expenseId) => {
   const params = {
     TableName: 'expenses',
     Key: {
-      id: expenseId,
+      'id': expenseId,
     },
   };
 
