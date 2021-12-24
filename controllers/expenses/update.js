@@ -9,18 +9,16 @@ const {
 module.exports.handler = async (event, context, callback) => {
 
   try{
-    // const data = JSON.parse(event.body);
+
+    const data = JSON.parse(event.body);
     console.log('sakjgbfwiunvs');
 
-    // validateExpense(data);
+    validateExpense(data);
 
-    // const expense = await createExpense(data);
+    await updateExpenseById(data);
 
     const response = {
       statusCode: 200,
-      // body: JSON.stringify({
-      //   expense,
-      // }),
     };
 
     callback(null, response);

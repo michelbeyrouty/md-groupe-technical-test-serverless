@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "b9dd8a31-7a3a-43f3-bc67-6626005ae12c",
+		"name": "MD-groupe-serverless",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create expense",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"d\",\n    \"type\": \"Entertainment\",\n    \"value\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://35lalp8rj9.execute-api.eu-west-1.amazonaws.com/dev/expenses/create",
+					"protocol": "https",
+					"host": [
+						"35lalp8rj9",
+						"execute-api",
+						"eu-west-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"expenses",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update expense",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\" : \"\",\n    \"description\": \"d\",\n    \"type\": \"Entertainment\",\n    \"value\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://35lalp8rj9.execute-api.eu-west-1.amazonaws.com/dev/expenses",
+					"protocol": "https",
+					"host": [
+						"35lalp8rj9",
+						"execute-api",
+						"eu-west-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"expenses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get expense",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"037d7560-632b-11ec-8715-676ddfdf7d32\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://35lalp8rj9.execute-api.eu-west-1.amazonaws.com/dev/expenses/get",
+					"protocol": "https",
+					"host": [
+						"35lalp8rj9",
+						"execute-api",
+						"eu-west-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"expenses",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete expense",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"d\",\n    \"type\": \"Entertainment\",\n    \"value\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://35lalp8rj9.execute-api.eu-west-1.amazonaws.com/dev/expenses/:expenseId",
+					"protocol": "https",
+					"host": [
+						"35lalp8rj9",
+						"execute-api",
+						"eu-west-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"expenses",
+						":expenseId"
+					],
+					"variable": [
+						{
+							"key": "expenseId",
+							"value": "7aa907e0-6497-11ec-aee8-25dc9333cdf2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List expenses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"d\",\n    \"type\": \"Entertainment\",\n    \"value\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://35lalp8rj9.execute-api.eu-west-1.amazonaws.com/dev/expenses/list",
+					"protocol": "https",
+					"host": [
+						"35lalp8rj9",
+						"execute-api",
+						"eu-west-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"expenses",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
